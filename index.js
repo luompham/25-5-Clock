@@ -10,11 +10,19 @@ class App extends React.Component {
             timer: 25
         }
 
-
+        this.decreaseBreak = this.decreaseBreak.bind(this);
 
     };
 
 
+
+    decreaseBreak() {
+
+        this.setState((prev) => {
+            return { break: prev.break - 1 }
+        });
+
+    }
 
 
     render() {
@@ -34,8 +42,13 @@ class App extends React.Component {
                             <div className='length_break'>
                                 <p>Break Length</p>
                                 <div>
-                                    <i className="fa-solid fa-down-long"></i>
+                                    <span onClick={this.decreaseBreak}>
+
+                                        <i className="fa-solid fa-down-long"></i>
+                                    </span>
+
                                     <span>{this.state.break}</span>
+
                                     <i className="fa-solid fa-up-long"></i>
                                 </div>
 
